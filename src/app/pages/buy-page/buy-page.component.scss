@@ -1,0 +1,97 @@
+@use 'colors';
+.card_buy {
+	max-width: 250px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+.title {
+	color: colors.$primary-color;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.container {
+	display: flex;
+	gap: 1em;
+
+	&-card {
+		width: 100%;
+		color: white;
+
+		.card-content {
+			justify-content: space-between;
+			height: 100%;
+			.price {
+				display: flex;
+				gap: 1em;
+				align-items: center;
+				&__value {
+					font-weight: bold;
+					font-size: 18px;
+
+					:nth-child(2) {
+						color: colors.$accent-color;
+						padding-left: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	&-card-buy {
+		@extend .card_buy;
+		.container-card-buy-content {
+			justify-content: space-between;
+			height: 100%;
+			h3 {
+				color: white;
+			}
+			.header {
+				.title {
+					text-transform: uppercase;
+				}
+
+				&__price {
+					padding-top: 10px;
+					padding-bottom: 15px;
+
+					:nth-child(2) {
+						color: colors.$accent-color;
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.card-buy-total {
+	@extend .card_buy;
+
+	.container-card-total-content {
+		justify-content: space-between;
+		height: 100%;
+
+		&__item {
+			display: flex;
+			align-items: flex-start;
+			padding-top: 10px;
+			:nth-child(1) {
+				color: colors.$primary-color;
+			}
+		}
+
+		&__total {
+			display: flex;
+			gap: 1em;
+			:nth-child(1) {
+				color: colors.$primary-color;
+			}
+			:nth-child(2) {
+				color: colors.$accent-color;
+			}
+		}
+	}
+}

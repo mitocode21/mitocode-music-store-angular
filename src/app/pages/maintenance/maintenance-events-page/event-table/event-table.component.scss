@@ -1,0 +1,13 @@
+.list {
+	padding: 2em;
+
+	.image-event {
+		width: 150px;
+		height: 170px;
+		object-fit: cover;
+		object-position: center;
+		margin-top: 4px;
+		margin-bottom: 4px;
+		border-radius: 5px;
+	}
+}

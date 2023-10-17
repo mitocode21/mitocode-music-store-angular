@@ -1,0 +1,67 @@
+<form class="crud flex-column" autocomplete="off">
+	<div class="crud__elements">
+		<div class="fields flex-column">
+			<mat-form-field appearance="outline">
+				<mat-label>Título</mat-label>
+				<input matInput type="text" />
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Descripción</mat-label>
+				<textarea matInput></textarea>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Fecha</mat-label>
+				<input matInput [matDatepicker]="picker" />
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker #picker></mat-datepicker>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Hora</mat-label>
+				<input matInput type="time" />
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Cantidad de entradas</mat-label>
+				<input matInput type="number" />
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Precio</mat-label>
+				<input matInput type="number" />
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Género</mat-label>
+				<mat-select>
+					<mat-option> DNI </mat-option>
+					<mat-option> C.E </mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Estado</mat-label>
+				<mat-select>
+					<mat-option> ACTIVO </mat-option>
+					<mat-option> INACTIVO </mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<button mat-raised-button color="primary">GUARDAR</button>
+			<button mat-raised-button color="accent" type="button">LIMPIAR</button>
+		</div>
+
+		<div class="load-image flex-column">
+			<div class="load-image__image">
+				<img src="" alt="" />
+			</div>
+
+			<button mat-raised-button color="primary">
+				<mat-icon>camera</mat-icon>
+				IMAGEN
+			</button>
+		</div>
+	</div>
+</form>
