@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { CardEventComponent } from '../../../commons/components/card-event/card-event.component';
+import { SharedFormCompleteModule } from '../../../commons/shared/shared-form-complete.module';
 
 export interface PeriodicElement {
 	name: string;
@@ -22,11 +25,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
+	standalone: true,
 	selector: 'app-maintenance-buy-page',
 	templateUrl: './maintenance-buy-page.component.html',
-	styleUrls: ['./maintenance-buy-page.component.scss']
+	styleUrls: ['./maintenance-buy-page.component.scss'],
+	imports: [SharedFormCompleteModule, CardEventComponent, MatPaginatorModule, MatTableModule]
 })
-export class MaintenanceBuyPageComponent {
+export default class MaintenanceBuyPageComponent {
 	displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 	dataSource = new MatTableDataSource(ELEMENT_DATA);
 

@@ -91,8 +91,14 @@ body {
 Estilos para cambiar al mat-input
 */
 
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
-	color: colors.$primary-color;
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
+	--mdc-outlined-text-field-label-text-color: colors.$primary-color;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
+	--mdc-outlined-text-field-label-text-color: #ffa000;
 }
 
 .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
@@ -103,6 +109,16 @@ Estilos para cambiar al mat-input
 
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
 	color: white;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
+	--mdc-outlined-text-field-input-text-color: white;
+}
+
+.mdc-text-field--outlined.mdc-text-field--disabled .mdc-notched-outline__leading,
+.mdc-text-field--outlined.mdc-text-field--disabled .mdc-notched-outline__notch,
+.mdc-text-field--outlined.mdc-text-field--disabled .mdc-notched-outline__trailing {
+	--mdc-outlined-text-field-disabled-outline-color: #5f513b;
 }
 
 /*Estilos para cambiar la mattable*/
