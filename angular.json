@@ -74,7 +74,27 @@
 							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
-							"namedChunks": true
+							"namedChunks": true,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.development.ts"
+								}
+							]
+						},
+						"qa": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.qa.ts"
+								}
+							]
 						}
 					},
 					"defaultConfiguration": "production"
@@ -87,6 +107,9 @@
 						},
 						"development": {
 							"browserTarget": "music-store-angular:build:development"
+						},
+						"qa": {
+							"browserTarget": "music-store-angular:build:qa"
 						}
 					},
 					"defaultConfiguration": "development"

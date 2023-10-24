@@ -1,4 +1,4 @@
-<mat-card class="card card--selected flex-column custom-card">
+<mat-card class="card flex-column custom-card" [class]="{ 'card--selected': isSelect }" (click)="clickEvent()">
 	<mat-card-content class="card-content flex-column">
 		<div class="card-content__header">
 			<span class="title">14 de marzo 2020</span>
@@ -8,7 +8,10 @@
 			</div>
 		</div>
 
-		<div class="card-content__img"></div>
+		<div
+			class="card-content__img"
+			[style.background-image]="'url(https://rickandmortyapi.com/api/character/avatar/1.jpeg)'"
+		></div>
 
 		<div class="card-content__content flex-column">
 			<span class="name-event">Lorem ipsum dolor sit, amet consectetur </span>

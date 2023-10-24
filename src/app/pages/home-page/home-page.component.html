@@ -2,9 +2,7 @@
 	<mat-form-field appearance="outline">
 		<mat-label>Género</mat-label>
 		<mat-select>
-			<mat-option> ROCK </mat-option>
-			<mat-option> BALADA </mat-option>
-			<mat-option> CUMBIA </mat-option>
+			<mat-option *ngFor="let item of listGenres"> {{ item.name | uppercase }} </mat-option>
 		</mat-select>
 	</mat-form-field>
 
@@ -12,8 +10,5 @@
 </div>
 
 <div class="cards">
-	<app-card-event />
-	<app-card-event />
-	<app-card-event />
-	<app-card-event />
+	<app-card-event *ngFor="let item of listConcerts"></app-card-event>
 </div>

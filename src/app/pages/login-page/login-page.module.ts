@@ -1,3 +1,4 @@
+import { UpperCasePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedFormBasicModule } from './../../commons/shared/shared-form-basic.module';
@@ -7,6 +8,6 @@ const routes: Routes = [{ path: '', component: LoginPageComponent }];
 
 @NgModule({
 	declarations: [LoginPageComponent],
-	imports: [RouterModule.forChild(routes), SharedFormBasicModule]
+	imports: [RouterModule.forChild(routes), SharedFormBasicModule, UpperCasePipe]
 })
 export class LoginPageModule {}

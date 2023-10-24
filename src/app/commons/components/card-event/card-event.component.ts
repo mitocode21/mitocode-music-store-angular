@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
@@ -6,6 +7,12 @@ import { MatCardModule } from '@angular/material/card';
 	selector: 'app-card-event',
 	templateUrl: './card-event.component.html',
 	styleUrls: ['./card-event.component.scss'],
-	imports: [MatCardModule]
+	imports: [MatCardModule, NgClass]
 })
-export class CardEventComponent {}
+export class CardEventComponent {
+	isSelect = false;
+
+	clickEvent(): void {
+		this.isSelect = true;
+	}
+}

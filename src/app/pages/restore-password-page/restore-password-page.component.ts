@@ -16,6 +16,9 @@ export default class RestorePasswordPageComponent implements OnInit {
 	@Input() value?: string;
 	@Input() token?: string;
 
+	readonly pathLogin = PATHS_AUTH_PAGES.loginPage.withSlash;
+	readonly pathRegister = PATHS_AUTH_PAGES.registerPage.withSlash;
+
 	private readonly _router = inject(Router);
 	private readonly _activatedRoute = inject(ActivatedRoute);
 

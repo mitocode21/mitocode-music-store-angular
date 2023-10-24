@@ -1,78 +1,80 @@
 <h4>Compra tus entradas y disfruta!</h4>
 <div class="container">
 	<app-card-event></app-card-event>
-	<mat-card class="container-card custom-card">
-		<mat-card-content class="card-content flex-column">
-			<div>
-				<span class="title">Aserca del evento</span><br /><br />
-				<span>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi fugit minus officiis dicta nihil, ad illum
-					eum et provident nam qui officia natus, totam illo beatae reiciendis facere quasi necessitatibus.
-				</span>
-			</div>
-
-			<div class="price">
-				<div class="price__value">
-					<span>Precio:</span>
-					<span>S/50</span>
-				</div>
-				<button mat-raised-button color="accent">COMPRAR ENTRADA</button>
-			</div>
-		</mat-card-content>
-	</mat-card>
-	<!-- 
-	<mat-card class="container-card-buy custom-card">
-		<mat-card-content class="container-card-buy-content flex-column">
-			<div class="header">
-				<span class="title">Bon Jovi En concierto</span>
-				<div class="header__price">
-					<span>PRECIO:</span>
-					<span>S/50</span>
-				</div>
-			</div>
-
-			<div>
-				<mat-form-field appearance="outline">
-					<mat-label>Cantidad de entradas</mat-label>
-					<input matInput type="number" autocomplete="off" min="1" />
-				</mat-form-field>
-
-				<h3>Total: S/100</h3>
-			</div>
-
-			<button mat-raised-button color="accent">PAGAR</button>
-		</mat-card-content>
-	</mat-card>
-
-	<mat-card class="card-buy-total custom-card">
-		<mat-card-content class="container-card-total-content flex-column">
-			<div>
-				<span class="title">VOUCHER</span>
-
-				<div class="container-card-total-content__item flex-column">
-					<span>Nro. Operacion</span>
-					<span>000502</span>
-				</div>
-				<div class="container-card-total-content__item flex-column">
-					<span>Cliente</span>
-					<span>Jimy H Dolores</span>
+	<ng-container [ngSwitch]="statusBuy">
+		<mat-card *ngSwitchDefault class="container-card custom-card">
+			<mat-card-content class="card-content flex-column">
+				<div>
+					<span class="title">Aserca del evento</span><br /><br />
+					<span>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi fugit minus officiis dicta nihil, ad illum
+						eum et provident nam qui officia natus, totam illo beatae reiciendis facere quasi necessitatibus.
+					</span>
 				</div>
 
-				<div class="container-card-total-content__item flex-column">
-					<span>Nro. Tickets</span>
-					<span>2</span>
+				<div class="price">
+					<div class="price__value">
+						<span>Precio:</span>
+						<span>{{ 50 | currency : 'PEN' : 'symbol' : '.2-2' }}</span>
+					</div>
+					<button mat-raised-button color="accent" (click)="clickBuy('BUY')">COMPRAR ENTRADA</button>
+				</div>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card *ngSwitchCase="'BUY'" class="container-card-buy custom-card">
+			<mat-card-content class="container-card-buy-content flex-column">
+				<div class="header">
+					<span class="title">Bon Jovi En concierto</span>
+					<div class="header__price">
+						<span>PRECIO:</span>
+						<span>{{ 50 | customCurrency }}</span>
+					</div>
 				</div>
 
-				<div class="container-card-total-content__item flex-column">
-					<span>Fecha de Pago</span>
-					<span>21/05/2023 </span>
-				</div>
-			</div>
+				<div>
+					<mat-form-field appearance="outline">
+						<mat-label>Cantidad de entradas</mat-label>
+						<input matInput type="number" autocomplete="off" min="1" />
+					</mat-form-field>
 
-			<div class="container-card-total-content__total">
-				<h3>TOTAL:</h3>
-				<h3>S/100</h3>
-			</div>
-		</mat-card-content>
-	</mat-card> -->
+					<h3>Total: {{ 100 | customCurrency }}</h3>
+				</div>
+
+				<button mat-raised-button color="accent" (click)="clickBuy('VOUCHER')">PAGAR</button>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card *ngSwitchCase="'VOUCHER'" class="card-buy-total custom-card">
+			<mat-card-content class="container-card-total-content flex-column">
+				<div>
+					<span class="title">VOUCHER</span>
+
+					<div class="container-card-total-content__item flex-column">
+						<span>Nro. Operacion</span>
+						<span>000502</span>
+					</div>
+					<div class="container-card-total-content__item flex-column">
+						<span>Cliente</span>
+						<span>Jimy H Dolores</span>
+					</div>
+
+					<div class="container-card-total-content__item flex-column">
+						<span>Nro. Tickets</span>
+						<span>2</span>
+					</div>
+
+					<div class="container-card-total-content__item flex-column">
+						<span>Fecha de Pago</span>
+						<span>{{ currentDate | date : 'dd/MM/yyyy' }}</span>
+					</div>
+				</div>
+
+				<div class="container-card-total-content__total">
+					<h3>TOTAL:</h3>
+					<h3>{{ 100 | customCurrency }}</h3>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</ng-container>
 </div>
