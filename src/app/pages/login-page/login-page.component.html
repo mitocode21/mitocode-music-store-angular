@@ -2,9 +2,7 @@
 	<h2>Compra tus entradas y disfruta!</h2>
 	<div class="container">
 		<mat-card class="container__card custom-card flex-column">
-			<mat-card-title
-				><h4>{{ title | uppercase }}</h4></mat-card-title
-			>
+			<mat-card-title><h4>INICIO DE SESION</h4></mat-card-title>
 			<mat-card-content>
 				<form class="content flex-column" autocomplete="off">
 					<mat-form-field appearance="outline">
@@ -19,7 +17,7 @@
 
 					<div class="content__login flex-column">
 						<span [routerLink]="pathRecovery">¿Olvidaste tu contraseña?</span>
-						<button mat-raised-button color="primary" routerLink="/maintenance">INGRESAR</button>
+						<button mat-raised-button color="primary" type="button" (click)="clickLogin()">INGRESAR</button>
 					</div>
 
 					<div class="content__register">

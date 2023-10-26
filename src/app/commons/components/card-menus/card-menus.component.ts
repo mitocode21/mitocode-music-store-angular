@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ICardMenu } from '../../models/components.interface';
 
 @Component({
 	standalone: true,
 	selector: 'app-card-menus',
 	templateUrl: './card-menus.component.html',
 	styleUrls: ['./card-menus.component.scss'],
-	imports: [MatCardModule]
+	imports: [MatCardModule, NgFor, NgIf, NgClass, RouterLink, RouterLinkActive]
 })
-export class CardMenusComponent {}
+export class CardMenusComponent {
+	@Input() menus: ICardMenu[] = [];
+
+	clickMenu(menu: ICardMenu): void {
+		this._activeMenu(menu);
+	}
+
+	private _activeMenu(menu: ICardMenu): void {
+		this.menus.forEach((item) => (item.active = false));
+		menu.active = true;
+	}
+}

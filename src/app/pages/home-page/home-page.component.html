@@ -2,13 +2,15 @@
 	<mat-form-field appearance="outline">
 		<mat-label>Género</mat-label>
 		<mat-select>
-			<mat-option *ngFor="let item of listGenres"> {{ item.name | uppercase }} </mat-option>
+			<mat-option *ngFor="let item of listGenres" [value]="item.id"> {{ item.name | uppercase }} </mat-option>
 		</mat-select>
 	</mat-form-field>
 
 	<h4>Selecciona tu género musical favorito</h4>
 </div>
 
+<h4>{{ titleSignalFunction() }}</h4>
+
 <div class="cards">
-	<app-card-event *ngFor="let item of listConcerts"></app-card-event>
+	<app-card-event *ngFor="let item of listConcerts" [event]="item" (clickCard)="clickCard($event)"></app-card-event>
 </div>

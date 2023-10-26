@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATHS_AUTH_PAGES, PATH_MAINTENANCE_PAGES } from '../../commons/config/path-pages';
+import { ChannelHeaderService } from '../../commons/services/local/channel-header.service';
 
 @Component({
 	selector: 'app-login-page',
@@ -12,9 +13,11 @@ export class LoginPageComponent {
 	readonly pathRecovery = PATHS_AUTH_PAGES.recoverPasswordPage.withSlash;
 	readonly pathRegister = PATHS_AUTH_PAGES.registerPage.withSlash;
 
-	private _router = inject(Router);
+	private readonly _channelHeaderService = inject(ChannelHeaderService);
+	private readonly _router = inject(Router);
 
 	clickLogin(): void {
+		this._channelHeaderService.showUser(true);
 		this._router.navigateByUrl(PATH_MAINTENANCE_PAGES.withSlash);
 	}
 }

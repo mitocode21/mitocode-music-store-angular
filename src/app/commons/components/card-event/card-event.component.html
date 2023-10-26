@@ -1,21 +1,26 @@
-<mat-card class="card flex-column custom-card" [class]="{ 'card--selected': isSelect }" (click)="clickEvent()">
+<mat-card
+	*ngIf="event"
+	class="card flex-column custom-card"
+	[class]="{ 'card--selected': isSelect }"
+	(click)="clickEvent()"
+>
 	<mat-card-content class="card-content flex-column">
 		<div class="card-content__header">
-			<span class="title">14 de marzo 2020</span>
+			<span class="title">{{ event.date }} </span>
 			<div class="subtitle">
-				<span class="subtitle__hour">14:30 PM</span>
-				<span>ROCK</span>
+				<span class="subtitle__hour">{{ event.hour }}</span>
+				<span class="">{{ event.genre }}</span>
 			</div>
 		</div>
-
 		<div
+			*ngIf="event.urlImage"
 			class="card-content__img"
-			[style.background-image]="'url(https://rickandmortyapi.com/api/character/avatar/1.jpeg)'"
+			[style.background-image]="'url(' + event.urlImage + ')'"
 		></div>
 
 		<div class="card-content__content flex-column">
-			<span class="name-event">Lorem ipsum dolor sit, amet consectetur </span>
-			<span class="location">xxxxxxxxxxxxxxxxxxx</span>
+			<span class="name-event">{{ event.title }} </span>
+			<span class="location">{{ event.place }}</span>
 		</div>
 	</mat-card-content>
 </mat-card>
