@@ -5,7 +5,6 @@
 		[routerLink]="menu.path"
 		routerLinkActive="container__card--active"
 		[routerLinkActiveOptions]="{ exact: true }"
-		(click)="clickMenu(menu)"
 	>
 		<img src="{{ 'assets/images/card-menus/' + menu.nameImage }} " />
 		<span>{{ menu.title }} </span>

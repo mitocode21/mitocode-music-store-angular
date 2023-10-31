@@ -1,17 +1,17 @@
 <div>
 	<h2>REPORTES / VENTAS</h2>
 	<div class="flex-column content">
-		<div class="content__filter">
+		<div class="content__filter" [formGroup]="formGroup">
 			<mat-form-field appearance="outline">
 				<mat-label>Fecha de inicio</mat-label>
-				<input matInput [matDatepicker]="pickerInit" />
+				<input matInput [matDatepicker]="pickerInit" formControlName="dateInit" />
 				<mat-datepicker-toggle matSuffix [for]="pickerInit"></mat-datepicker-toggle>
 				<mat-datepicker #pickerInit></mat-datepicker>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Fecha fin</mat-label>
-				<input matInput [matDatepicker]="pickerFin" />
+				<input matInput [matDatepicker]="pickerFin" formControlName="dateEnd" />
 				<mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
 				<mat-datepicker #pickerFin></mat-datepicker>
 			</mat-form-field>
@@ -19,7 +19,7 @@
 
 		<div>
 			<button mat-raised-button color="primary" class="content__query">CONSULTAR</button>
-			<button mat-raised-button color="accent">LIMPIAR</button>
+			<button mat-raised-button color="accent" (click)="clickClear()">LIMPIAR</button>
 		</div>
 
 		<!-- <div class="chart">

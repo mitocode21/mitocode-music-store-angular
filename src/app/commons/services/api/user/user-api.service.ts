@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { IResponse } from '../api-models-base.interface';
 import { environment } from './../../../../../environments/environment';
 import {
@@ -26,7 +26,12 @@ export class UserApiService {
 	constructor(private _httpClient: HttpClient) {}
 
 	login(request: IRequestLogin): Observable<IResponseLogin> {
-		return this._httpClient.post<IResponseLogin>(URL_LOGIN, request);
+		return this._httpClient.post<IResponseLogin>(URL_LOGIN, request).pipe(
+			catchError((error) => {
+				console.log('--CAPTURANDO ERROR DESDE EL SERVICIO--', error);
+				return throwError(() => error);
+			})
+		);
 	}
 
 	register(request: IRequestRegister): Observable<IResponse<string>> {

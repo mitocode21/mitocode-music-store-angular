@@ -12,5 +12,7 @@
 <h4>{{ titleSignalFunction() }}</h4>
 
 <div class="cards">
-	<app-card-event *ngFor="let item of listConcerts" [event]="item" (clickCard)="clickCard($event)"></app-card-event>
+	<ng-container *ngIf="stateLoading() === 'READY'">
+		<app-card-event *ngFor="let item of listConcerts" [event]="item" (clickCard)="clickCard($event)"></app-card-event>
+	</ng-container>
 </div>

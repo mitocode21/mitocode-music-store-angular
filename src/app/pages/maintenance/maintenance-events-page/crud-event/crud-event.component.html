@@ -1,67 +1,84 @@
-<form class="crud flex-column" autocomplete="off">
+<form class="crud flex-column" autocomplete="off" [formGroup]="formGroup" (ngSubmit)="clickSave()">
 	<div class="crud__elements">
 		<div class="fields flex-column">
 			<mat-form-field appearance="outline">
 				<mat-label>Título</mat-label>
-				<input matInput type="text" />
+				<input matInput type="text" formControlName="title" />
+				<mat-error *ngIf="titleField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field class="example-full-width" appearance="outline">
-				<mat-label>Descripción</mat-label>
-				<textarea matInput></textarea>
+				<mat-label>description</mat-label>
+				<textarea matInput formControlName="description"></textarea>
+				<mat-error *ngIf="descriptionField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Fecha</mat-label>
-				<input matInput [matDatepicker]="picker" />
+				<input matInput [matDatepicker]="picker" formControlName="date" />
 				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker>
+				<mat-error *ngIf="dateField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Hora</mat-label>
-				<input matInput type="time" />
+				<input matInput type="time" formControlName="hour" />
+				<mat-error *ngIf="hourField.hasError('required')">Este campo es requerido</mat-error>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline">
+				<mat-label>Lugar</mat-label>
+				<input matInput type="text" maxlength="120" formControlName="place" />
+				<mat-error *ngIf="placeField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Cantidad de entradas</mat-label>
-				<input matInput type="number" />
+				<input matInput type="number" formControlName="ticketsQuantity" />
+				<mat-error *ngIf="ticketsQuantityField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Precio</mat-label>
-				<input matInput type="number" />
+				<input matInput type="number" formControlName="price" />
+				<mat-error *ngIf="priceField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Género</mat-label>
-				<mat-select>
-					<mat-option> DNI </mat-option>
-					<mat-option> C.E </mat-option>
+				<mat-select formControlName="genre">
+					<mat-option *ngFor="let item of listGenres" [value]="item.id"> {{ item.name }} </mat-option>
 				</mat-select>
+				<mat-error *ngIf="genreField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="outline">
 				<mat-label>Estado</mat-label>
-				<mat-select>
-					<mat-option> ACTIVO </mat-option>
-					<mat-option> INACTIVO </mat-option>
+				<mat-select formControlName="status">
+					<mat-option [value]="1"> ACTIVO </mat-option>
+					<mat-option [value]="0"> INACTIVO </mat-option>
 				</mat-select>
+				<mat-error *ngIf="statusField.hasError('required')">Este campo es requerido</mat-error>
 			</mat-form-field>
 
-			<button mat-raised-button color="primary">GUARDAR</button>
+			<button mat-raised-button color="primary" type="submit">GUARDAR</button>
+
 			<button mat-raised-button color="accent" type="button">LIMPIAR</button>
 		</div>
 
 		<div class="load-image flex-column">
 			<div class="load-image__image">
-				<img src="" alt="" />
+				<img *ngIf="imageField.value" [src]="imageField.value" />
+				<input hidden (change)="onFileSelected($event)" #fileInput type="file" accept=".jpg,.jpeg,.png" />
 			</div>
 
-			<button mat-raised-button color="primary">
+			<button mat-raised-button color="primary" (click)="fileInput.click()" type="button">
 				<mat-icon>camera</mat-icon>
 				IMAGEN
 			</button>
+
+			<mat-error *ngIf="imageField.hasError('required')">Este campo es requerido</mat-error>
 		</div>
 	</div>
 </form>
