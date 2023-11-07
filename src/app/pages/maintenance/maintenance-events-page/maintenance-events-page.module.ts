@@ -23,6 +23,7 @@ import { EventTableComponent } from './event-table/event-table.component';
 		CustomCurrencyPipe,
 		DatePipe
 	],
+	providers: [DatePipe],
 	exports: [CrudEventComponent, EventTableComponent, MatTabsModule, MatIconModule]
 })
 export class MaintenanceEventsModule {}

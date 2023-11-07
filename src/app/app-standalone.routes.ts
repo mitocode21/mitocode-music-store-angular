@@ -6,11 +6,14 @@ import {
 	PATH_MY_ACCOUNT_PAGES,
 	PATH_NOT_FOUND_PAGE
 } from './commons/config/path-pages';
+import { NewAuthGuard } from './commons/guards/auth.guard';
+import { NewBuyGuard } from './commons/guards/buy.guard';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 export const ROUTES_ROOT: Routes = [
 	{
 		path: '',
+		canActivate: [NewBuyGuard],
 		component: HomePageComponent
 	},
 	{
@@ -36,10 +39,12 @@ export const ROUTES_ROOT: Routes = [
 	{
 		path: PATH_BUY_PAGES.buyPage.onlyPath,
 		title: 'Compra de entradas',
+		canActivate: [NewBuyGuard],
 		loadComponent: () => import('./pages/buy-page/buy-page.component')
 	},
 	{
 		path: PATH_MAINTENANCE_PAGES.onlyPath,
+		canActivate: [NewAuthGuard],
 		loadChildren: () => import('./pages/maintenance/maintenance.routes')
 	},
 	{

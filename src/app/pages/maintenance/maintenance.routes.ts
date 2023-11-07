@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
 import { PATH_MAINTENANCE_PAGES } from '../../commons/config/path-pages';
+import { NewMaintenanceGuard } from '../../commons/guards/maintenance.guard';
 import { MaintenanceComponent } from './maintenance.component';
 
 export default [
 	{
 		path: '',
 		component: MaintenanceComponent,
+		canActivateChild: [NewMaintenanceGuard],
 		children: [
 			{
 				path: PATH_MAINTENANCE_PAGES.buy.onlyPath,

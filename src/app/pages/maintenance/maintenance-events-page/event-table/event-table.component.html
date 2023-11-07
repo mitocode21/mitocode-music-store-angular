@@ -62,7 +62,7 @@
 							<mat-icon color="warn">delete</mat-icon>
 							<span>Eliminar</span>
 						</button>
-						<button mat-menu-item (click)="clickUpdate(element.id)">
+						<button mat-menu-item (click)="clickUpdateEvent(element.id)">
 							<mat-icon color="primary">edit</mat-icon>
 							<span>Editar</span>
 						</button>
@@ -82,6 +82,6 @@
 				<td class="mat-cell" colspan="4">No existe información para: "{{ input.value }}"</td>
 			</tr>
 		</table>
-		<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons> </mat-paginator>
+		<mat-paginator [pageSize]="5" [length]="resultsLength"> </mat-paginator>
 	</div>
 </div>

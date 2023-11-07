@@ -21,7 +21,8 @@ export interface IResponseConcert {
 	place: string;
 	dateEvent: string;
 	timeEvent: string;
-	genre: IGenre;
+	genre: string;
+	genreId: number;
 	imageUrl: string;
 	description: string;
 	ticketsQuantity: number;
@@ -29,8 +30,4 @@ export interface IResponseConcert {
 	status: string;
 }
 
-interface IGenre {
-	id: number;
-	name: string;
-}
 //#endregion

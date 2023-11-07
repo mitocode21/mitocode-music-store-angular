@@ -16,7 +16,6 @@ export interface ICardEvent {
 export interface ICardMenu {
 	title: string;
 	nameImage: string;
-	active: boolean;
 	path: string;
 }
 //#endregion
