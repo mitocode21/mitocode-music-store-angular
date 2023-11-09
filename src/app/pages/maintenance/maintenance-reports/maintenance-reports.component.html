@@ -18,24 +18,21 @@
 		</div>
 
 		<div>
-			<button mat-raised-button color="primary" class="content__query">CONSULTAR</button>
+			<button mat-raised-button color="primary" class="content__query" (click)="clickQuery()">CONSULTAR</button>
 			<button mat-raised-button color="accent" (click)="clickClear()">LIMPIAR</button>
 		</div>
 
-		<!-- <div class="chart">
-      <ngx-charts-pie-chart
-        [results]="dataPie"
-        [labels]="true"
-        [trimLabels]="false"
-        style="fill: white"
-      >
-      </ngx-charts-pie-chart>
-    </div>
+		<ng-container *ngIf="dataPie">
+			<div class="chart">
+				<ngx-charts-pie-chart [results]="dataPie" [labels]="true" [trimLabels]="false" style="fill: white">
+				</ngx-charts-pie-chart>
+			</div>
 
-    <div class="reports">
-      <button class="icon-button">
-        <img class="icon-button__icon" src="assets/images/pdf.png" />
-      </button>
-    </div> -->
+			<div class="reports">
+				<button class="icon-button" (click)="generatePdf()">
+					<img class="icon-button__icon" src="assets/images/pdf.png" />
+				</button>
+			</div>
+		</ng-container>
 	</div>
 </div>
