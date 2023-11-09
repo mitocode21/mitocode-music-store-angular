@@ -15,7 +15,7 @@ import { HTTP_INTERCEPTORS, withInterceptors } from '@angular/common/http';
 import { LOCALE_ID, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import {
 	ConfirmBoxConfigModule,
 	DialogConfigModule,
@@ -31,7 +31,7 @@ registerLocaleData(LocaleEsPe);
 bootstrapApplication(AppStandaloneComponent, {
 	providers: [
 		provideAnimations(),
-		provideRouter(ROUTES_ROOT),
+		provideRouter(ROUTES_ROOT, withHashLocation()),
 		provideHttpClient(withInterceptors([NewApiInterceptor]), withInterceptorsFromDi()),
 		importProvidersFrom([
 			NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
