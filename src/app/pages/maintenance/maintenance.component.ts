@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CardMenusComponent } from '../../commons/components/card-menus/card-menus.component';
 import { PATH_MAINTENANCE_PAGES } from '../../commons/config/path-pages';
 import { ICardMenu } from '../../commons/models/components.interface';
-import { ConcertApiService, GenreApiService, ReportsApiService, SaleApiService } from './services/service-index';
+import { ConcertApiService, GenreApiService, ReportsApiService } from './services/service-index';
 
 @Component({
 	standalone: true,
@@ -11,7 +11,7 @@ import { ConcertApiService, GenreApiService, ReportsApiService, SaleApiService }
 	templateUrl: './maintenance.component.html',
 	styleUrls: ['./maintenance.component.scss'],
 	imports: [CardMenusComponent, RouterOutlet],
-	providers: [ConcertApiService, GenreApiService, ReportsApiService, SaleApiService]
+	providers: [ConcertApiService, GenreApiService, ReportsApiService]
 })
 export class MaintenanceComponent {
 	readonly menuAdmin: ICardMenu[] = [

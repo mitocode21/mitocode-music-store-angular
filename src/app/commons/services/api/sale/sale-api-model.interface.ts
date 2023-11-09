@@ -38,6 +38,6 @@ export interface IResponseSale {
 	fullName: string;
 	quantity: number;
 	saleDate: string;
-	totalSale: number;
+	total: number;
 }
 //#endregion

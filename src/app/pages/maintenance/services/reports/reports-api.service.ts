@@ -12,7 +12,7 @@ export class ReportsApiService {
 	private _httpClient = inject(HttpClient);
 
 	getDataSale(dateInit: string, dateEnd: string): Observable<IResponse<IResponseReportSale[]>> {
-		const params = new HttpParams().set('startDate', dateInit).set('endDate', dateEnd);
+		const params = new HttpParams().set('dateStart', dateInit).set('dateEnd', dateEnd);
 		return this._httpClient.get<IResponse<IResponseReportSale[]>>(URL_REPORT_SALE, { params });
 	}
 }

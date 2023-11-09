@@ -5,9 +5,9 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { CardEventComponent } from '../../../commons/components/card-event/card-event.component';
+import { IResponseListSales } from '../../../commons/services/api/sale/sale-api-model.interface';
 import { SharedFormCompleteModule } from '../../../commons/shared/shared-form-complete.module';
 import { IResponseGenre } from '../services/genre/genre-api-model.interface';
-import { IResponseListSales } from '../services/sale/sale-api-model.interface';
 import { SaleApiService } from '../services/service-index';
 
 @Component({
